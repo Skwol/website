@@ -6,6 +6,8 @@
 	<title>Middlezation</title>
 	<link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
 	<link href="{{ url_for('static', filename='favicon.ico') }}" rel="shortcut icon">
+	<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+	<script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
 </head>
 <header>
 
@@ -25,9 +27,17 @@
 	        <div style="margin-right: 10px; margin-left: 15px; margin-top: 5px; margin-bottom: 5px;" class="container-fluid">
 	        	<h5>
 	        		<a href="/support-donate/"> <span class="glyphicon glyphicon-heart"></span> Support&nbsp;&nbsp;&nbsp;</a>
+
 	        		<a role="presentation" data-toggle="modal" data-target="#exampleModal" href="#"><span class="glyphicon glyphicon-log-in"></span> Login&nbsp;&nbsp;&nbsp;</a>
 
-	        		<div class="modal fade" id="exampleModal" tabindex="-1", role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	        		<a role="presentation" class="active" data-toggle="modal" data-target="#register" href="#"><span class="glyphicon glyphicon-pencil"></span> Sign up</a>
+	        	</h5>
+	        </div>	
+	    </ul>
+    </div>
+</header>
+<body>
+	<div class="modal fade" id="exampleModal" tabindex="-1", role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 	        			<div class="modal-dialog">
 	        				<div class="modal-content">
 	        					<div class="modal-header">
@@ -51,43 +61,37 @@
 	        					</div>
 	        				</div>
 	        			</div>
-	        		</div>
+	</div>
+	<div class="modal fade" id="register" tabindex="-1", role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title" id="exampleModalLabel">Register<h4>
+				</div>
+				<div class="modal-body">
+					<div class="container">
+						<form method="post" action="/register">
+							<dl>
+								<dt><label for="username">Username</label>
+								<dd><input id="username" name="username" type="text" value=""></dd>
+								<dt><label for="email">Email Address</label>
+								<dd><input id="email" name="email" type="text" value=""></dd>
+								<dt><label for="password">New Password</label>
+								<dd><input id="password" name="password" type="password" value=""></dd>
+								<dt><label for="confirm">Repeat Password</label>
+								<dd><input id="confirm" name="confirm" type="password" value=""></dd>
+								<dt><label for="accept-tos">I accept the <a href="/about/tos" target="blank">Terms of Service</a> and <a href="/about/privacy-policy" target="blank">Privacy Notice</a> (updated May 15, 2017)</label>
+								<dd><input id="accept-tos" name="accept-tos" type="checkbox" value="y"></dd>
+							</dl>
+							<p><input type=submit value=Register>
+						</form>
+					</div>
+				</div>	        					
+			</div>
+		</div>
+	</div>
 
-	        		<a role="presentation" class="active" data-toggle="modal" data-target="#register" href="#"><span class="glyphicon glyphicon-pencil"></span> Sign up</a>
-	        	</h5>
-	        	<div class="modal fade" id="register" tabindex="-1", role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        			<div class="modal-dialog">
-        				<div class="modal-content">
-        					<div class="modal-header">
-        						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-	        						<h4 class="modal-title" id="exampleModalLabel">Register<h4>
-	        				</div>
-	        				<div class="modal-body">
-        						<div class="container">
-        							<form method="post" action="/register">
-        								<dl>
-        									<dt><label for="username">Username</label>
-        									<dd><input id="username" name="username" type="text" value=""></dd>
-        									<dt><label for="email">Email Address</label>
-        									<dd><input id="email" name="email" type="text" value=""></dd>
-        									<dt><label for="password">New Password</label>
-        									<dd><input id="password" name="password" type="password" value=""></dd>
-        									<dt><label for="confirm">Repeat Password</label>
-        									<dd><input id="confirm" name="confirm" type="password" value=""></dd>
-        									<dt><label for="accept-tos">I accept the <a href="/about/tos" target="blank">Terms of Service</a> and <a href="/about/privacy-policy" target="blank">Privacy Notice</a> (updated May 15, 2017)</label>
-        									<dd><input id="accept-tos" name="accept-tos" type="checkbox" value="y"></dd>
-        								</dl>
-        								<p><input type=submit value=Register>
-        							</form>
-        						</div>
-							</div>	        					
-	        			</div>
-	        		</div>
-	        	</div>
-	    </ul>
-    </div>
-</header>
-<body>
 	<div class="container" allign="center" style="height:80%">
 		<a href="/dashboard/">
 			<img src="{{ url_for('static', filename='images/python-mid-main.png') }}" style="width: 100%; max-height: 80%; margin-top: 10%">
@@ -101,19 +105,8 @@
       <p class="lead">This website was developed in order to help me or any other junior python developer to improve programming skills. Information for different topics will be gathered on the dashboard.</p>
     </div>
 
-    <footer class="footer">
-      <div class="container">
-      		<ul class="nav navbar-nav navbar-right">
-        		<a href="https://www.raspberrypi.org/" class="navbar-brand">
-        			<img style="max-width:50px;" src="{{ url_for('static', filename='images/powered_by_rasp.png') }}">
-        		</a>
-	        </ul>
-      </div>
-    </footer>
 
-
-	<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-	<script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+	
 
 
 
