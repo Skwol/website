@@ -15,9 +15,10 @@ def homepage():
 def dashboard():
     return render_template('dashboard.html', TOPIC_DICT=TOPIC_DICT)
 
+
 @app.errorhandler(404)
 def page_not_found(error):
-    return "asdasd"
+    return "Some text"
 
 
 if __name__ == '__main__':
