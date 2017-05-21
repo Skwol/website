@@ -1,7 +1,7 @@
 from flask import Flask, render_template
-from content_management import content
+from content_management import Content
 
-TOPIC_DICT = content()
+TOPIC_DICT = Content()
 
 app = Flask(__name__)
 
