@@ -14,7 +14,20 @@
 
   <!-- Tab panes -->
   <div class="tab-content">
-  <div role="tabpanel" class="tab-pane fade in active" id="python">Python staff here</div>
+  <div role="tabpanel" class="tab-pane fade in active" id="python">
+
+    <ol>
+      {% for topic in TOPIC_DICT["Python"] %}
+        <li>{{topic[0]}}</li>
+        <ul>
+          {% for theme in topic[1] %}
+          <li><a href="{{ theme[1] }}">{{ theme[0] }}</a></li>
+          {% enfor %}
+        </ul>
+      {% endfor %}
+    </ol>
+
+  </div>
   <div role="tabpanel" class="tab-pane fade" id="javascript">JS crap here</div>
   <div role="tabpanel" class="tab-pane fade" id="database">DB staff here</div>
   <div role="tabpanel" class="tab-pane fade" id="places">Some usefull links shoud land here</div>

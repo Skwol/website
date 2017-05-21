@@ -1,4 +1,7 @@
 from flask import Flask, render_template
+from content_management import content
+
+TOPIC_DICT = content()
 
 app = Flask(__name__)
 
@@ -10,7 +13,7 @@ def homepage():
 
 @app.route('/dashboard/')
 def dashboard():
-    return render_template('dashboard.html')
+    return render_template('dashboard.html', TOPIC_DICT=TOPIC_DICT)
 
 
 if __name__ == '__main__':
