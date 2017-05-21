@@ -11,29 +11,31 @@
 </head>
 <header>
 
-	<div class="navbar navbar-default navbar-fixed-top">
-		<div class="navbar-header">
-			<a class="navbar-brand" href="/">
-				<img style="max-width:50px; margin-top:-8px;" src="{{ url_for('static', filename='images/mainlogo.png') }}">
+	<div class="navbar navbar-default">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="/">
+					<img style="max-width:50px; margin-top:-8px;" src="{{ url_for('static', filename='images/mainlogo.png') }}">
+				</a>
+			</div>
+			<a href="/dashboard/">
+				<button type="button" class="btn btn-primary" aria-label="Left Align" style="margin-top: 10px; margin-bottom: 5px; height: 44px; margin-right: 15px">
+					<span class="glyphicon glyphicon-flash" aria-hidden="true"></span> Become Middle
+				</button>
 			</a>
+
+			<ul class="nav navbar-nav navbar-right">
+				<div style="margin-right: 10px; margin-left: 15px; margin-top: 5px; margin-bottom: 5px;" class="container-fluid">
+					<h5>
+						<a href="/support-donate/"> <span class="glyphicon glyphicon-heart"></span> Support&nbsp;&nbsp;&nbsp;</a>
+
+						<a role="presentation" data-toggle="modal" data-target="#exampleModal" href="#"><span class="glyphicon glyphicon-log-in"></span> Login&nbsp;&nbsp;&nbsp;</a>
+
+						<a role="presentation" class="active" data-toggle="modal" data-target="#register" href="#"><span class="glyphicon glyphicon-pencil"></span> Sign up</a>
+					</h5>
+				</div>
+			</ul>
 		</div>
-	 	<a href="/dashboard/">
-	 		<button type="button" class="btn btn-primary" aria-label="Left Align" style="margin-top: 10px; margin-bottom: 5px; height: 44px; margin-right: 15px">				
-	 			<span class="glyphicon glyphicon-flash" aria-hidden="true"></span> Become Middle
-			</button>
-		</a>
-		
-		<ul class="nav navbar-nav navbar-right">
-	        <div style="margin-right: 10px; margin-left: 15px; margin-top: 5px; margin-bottom: 5px;" class="container-fluid">
-	        	<h5>
-	        		<a href="/support-donate/"> <span class="glyphicon glyphicon-heart"></span> Support&nbsp;&nbsp;&nbsp;</a>
-
-	        		<a role="presentation" data-toggle="modal" data-target="#exampleModal" href="#"><span class="glyphicon glyphicon-log-in"></span> Login&nbsp;&nbsp;&nbsp;</a>
-
-	        		<a role="presentation" class="active" data-toggle="modal" data-target="#register" href="#"><span class="glyphicon glyphicon-pencil"></span> Sign up</a>
-	        	</h5>
-	        </div>	
-	    </ul>
     </div>
 </header>
 <body>
@@ -94,7 +96,7 @@
 
 	<div class="container" allign="center" style="height:80%">
 		<a href="/dashboard/">
-			<img src="{{ url_for('static', filename='images/python-mid-main.png') }}" style="width: 100%; max-height: 80%; margin-top: 10%">
+			<img src="{{ url_for('static', filename='images/python-mid-main.png') }}" style="width: 100%; max-height: 80%">
 		</a>
 	</div>
 

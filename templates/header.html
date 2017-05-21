@@ -9,19 +9,20 @@
 </head>
 <header>
 
-	<div class="navbar navbar-default navbar-fixed-top">
-		<div class="navbar-header">
-			<a class="navbar-brand" href="/">
-				<img style="max-width:50px; margin-top:-8px;" src="{{ url_for('static', filename='images/mainlogo.png') }}">
+	<div class="navbar navbar-default">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="/">
+					<img style="max-width:50px; margin-top:-8px;" src="{{ url_for('static', filename='images/mainlogo.png') }}">
+				</a>
+				</div>
+			<a href="/dashboard/">
+				<button type="button" class="btn btn-primary" aria-label="Left Align" style="margin-top: 10px; margin-bottom: 5px; height: 44px; margin-right: 15px">
+					<span class="glyphicon glyphicon-flash" aria-hidden="true"></span> Become Middle
+				</button>
 			</a>
-		</div>
-	 	<a href="/dashboard/">
-	 		<button type="button" class="btn btn-primary" aria-label="Left Align" style="margin-top: 10px; margin-bottom: 5px; height: 44px; margin-right: 15px">				
-	 			<span class="glyphicon glyphicon-flash" aria-hidden="true"></span> Become Middle
-			</button>
-		</a>
-		
-		<ul class="nav navbar-nav navbar-right">
+
+			<ul class="nav navbar-nav navbar-right">
 	        <div style="margin-right: 10px; margin-left: 15px; margin-top: 5px; margin-bottom: 5px;" class="container-fluid">
 	        	<h5>
 	        		<a href="/support-donate/"> <span class="glyphicon glyphicon-heart"></span> Support&nbsp;&nbsp;&nbsp;</a>
@@ -86,11 +87,10 @@
 	        	</div>
 			</div>
 		</ul>
+		</div>
     </div>
 </header>
 <body>
-
-	<div class="border-row" style="width: 100%; margin-top: 5%;"></div>
 
 	<div class="container-fluid" style="min-height: 100%;">
 
