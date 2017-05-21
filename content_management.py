@@ -23,8 +23,20 @@ def Content():
                 ('Itertools', '/step-3-itertools/'),
                 ('Useful libraries', '/step-3-useful-libraries/'),
                 ('Text parsing, working with files and unicode (part II)', '/step-3-parsing-files-unicode-ii/'),
-                ('Python project architecture', '/step-2-python-architecture/'),
-                ('Magic methods in python', '/step-2-magic/')
+                ('Python project architecture', '/step-3-python-architecture/'),
+                ('Magic methods in python', '/step-3-magic/')
+            ]
+             ],
+            ['The last step', [
+                ('Deploying webserver/website (fabric, docker)', '/step-4-webserver/'),
+                ('Working with DB in python', '/step-4-python-db/'),
+                ('Data base migration', '/step-4-migration/'),
+                ('Django basics', '/step-4-django-basics/'),
+                ('Flask basics', '/step-4-flask-basics/'),
+                ('ORM and MVC patterns', '/step-4-orm-mvc/'),
+                ('Code tracing, linters', '/step-4-linters/'),
+                ('Using custom decorators and generators', '/step-4-custom-decor-gener/'),
+                ('Method resolution order (MRO)', '/step-4-mro/'),
             ]
              ],
         ]
