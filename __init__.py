@@ -21,5 +21,15 @@ def page_not_found(error):
     return render_template('404.html')
 
 
+@app.errorhandler(405)
+def method_not_found(error):
+    return render_template('405.html')
+
+
+@app.route('/login/', methods=['GET', 'POST'])
+def login_page():
+    return render_template('login.html')
+
+
 if __name__ == '__main__':
     app.run()

@@ -26,65 +26,9 @@
 	        <div style="margin-right: 10px; margin-left: 15px; margin-top: 5px; margin-bottom: 5px;" class="container-fluid">
 	        	<h5>
 	        		<a href="/support-donate/"> <span class="glyphicon glyphicon-heart"></span> Поддержать проект&nbsp;&nbsp;&nbsp;</a>
-	        		<a role="presentation" data-toggle="modal" data-target="#exampleModal" href="#"><span class="glyphicon glyphicon-log-in"></span> Войти&nbsp;&nbsp;&nbsp;</a>
-
-	        		<div class="modal fade" id="exampleModal" tabindex="-1", role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-	        			<div class="modal-dialog">
-	        				<div class="modal-content">
-	        					<div class="modal-header">
-	        						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-	        						<h4 class="modal-title" id="exampleModalLabel">Войти<h4>
-	        					</div>
-	        					<div class="modal-body">
-	        						<div class="container-fluid">
-	        							<form action="" class="form-inline" method="post">
-	        								<input type="text" class="form-control" placeholder="Username" name="username" value="">
-	        								<input type="password" class="form-control" placeholder="Password" name="password" value="">
-	        								<input class="btn btn-primary" type="submit" value="Login">
-	        							</form>
-
-	        							<div class="container">
-	        								<br>
-	        								<p>Нет аккаунта? <a href="/register">Регистрируйся тут</a>.</p>
-	        								<br>
-	        							</div>
-	        						</div>
-	        					</div>
-	        				</div>
-	        			</div>
-	        		</div>
-
-	        		<a role="presentation" class="active" data-toggle="modal" data-target="#register" href="#"><span class="glyphicon glyphicon-pencil"></span> Зарегистрироваться</a>
+	        		<a href="/login/"><span class="glyphicon glyphicon-log-in"></span> Войти&nbsp;&nbsp;&nbsp;</a>
+	        		<a href="/register/"><span class="glyphicon glyphicon-pencil"></span> Зарегистрироваться</a>
 	        	</h5>
-	        	<div class="modal fade" id="register" tabindex="-1", role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        			<div class="modal-dialog">
-        				<div class="modal-content">
-        					<div class="modal-header">
-        						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-	        						<h4 class="modal-title" id="exampleModalLabel">Зарегистрироваться<h4>
-	        				</div>
-	        				<div class="modal-body">
-        						<div class="container">
-        							<form method="post" action="/register">
-        								<dl>
-        									<dt><label for="username">Username</label>
-        									<dd><input id="username" name="username" type="text" value=""></dd>
-        									<dt><label for="email">Email Address</label>
-        									<dd><input id="email" name="email" type="text" value=""></dd>
-        									<dt><label for="password">New Password</label>
-        									<dd><input id="password" name="password" type="password" value=""></dd>
-        									<dt><label for="confirm">Repeat Password</label>
-        									<dd><input id="confirm" name="confirm" type="password" value=""></dd>
-        									<dt><label for="accept-tos">Я согласен с <a href="/about/tos" target="blank">условиями использования</a> и <a href="/about/privacy-policy" target="blank">уведомлением о конфиденциальности</a> (обновлено 26 мая 2017)</label>
-        									<dd><input id="accept-tos" name="accept-tos" type="checkbox" value="y"></dd>
-        								</dl>
-        								<p><input type=submit value=Register>
-        							</form>
-        						</div>
-							</div>	        					
-	        			</div>
-	        		</div>
-	        	</div>
 			</div>
 		</ul>
 		</div>
