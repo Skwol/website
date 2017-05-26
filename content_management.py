@@ -1,42 +1,43 @@
+# -*- coding: utf-8 -*-
 def Content():
     return {
         'Python': [
-            ['Step 1', [
+            [u'Ступень 1', [
                 ('IDE: Sublime/PyCharm/etc', '/step-1-ide/'),
-                ('PEP guide', '/step-1-pep/'),
-                ('Package installers', '/step-1-package-managers/')
+                (u'Соблюдение PEP-guide\'ов', '/step-1-pep/'),
+                (u'Установщики пакетов и инсталляции зависимостей (pip, easy install)', '/step-1-package-managers/')
             ]
              ],
-            ['Step 2', [
-                ('Iterators and comprehensions', '/step-2-iter-and-compr/'),
-                ('Lambda-functions', '/step-2-lambda/'),
-                ('Generators', '/step-2-generators/'),
-                ('Text parsing, working with files and unicode', '/step-2-parsing-files-unicode/'),
-                ('Error handling', '/step-2-error-handling/'),
-                ('Modules', '/step-2-modules/'),
+            [u'Ступень 2', [
+                (u'Итераторы, компрехеншены', '/step-2-iter-and-compr/'),
+                (u'Lambda-functions', '/step-2-lambda/'),
+                (u'Генераторы', '/step-2-generators/'),
+                (u'Парсинг текста, работа с файлами, unicode', '/step-2-parsing-files-unicode/'),
+                (u'Обработка исключений', '/step-2-error-handling/'),
+                (u'Модули', '/step-2-modules/'),
                 ('IDE: Chrome WEbDev Tools, Fiddler etc', '/step-2-web-ide/')
             ]
              ],
-            ['Step 3', [
-                ('Decorators', '/step-3-decorators/'),
-                ('Collections', '/step-3-collections/'),
-                ('Itertools', '/step-3-itertools/'),
-                ('Useful libraries', '/step-3-useful-libraries/'),
-                ('Text parsing, working with files and unicode (part II)', '/step-3-parsing-files-unicode-ii/'),
-                ('Python project architecture', '/step-3-python-architecture/'),
-                ('Magic methods in python', '/step-3-magic/')
+            [u'Ступень 3', [
+                (u'Декораторы', '/step-3-decorators/'),
+                (u'Углубленные знания collections', '/step-3-collections/'),
+                (u'Itertools', '/step-3-itertools/'),
+                (u'Библиотека datetime и другие базовые библиотеки', '/step-3-useful-libraries/'),
+                (u'Парсинг текста, работа с файлами, unicode (часть 2)', '/step-3-parsing-files-unicode-ii/'),
+                (u'Модульное проектирование с учетом практик ООП', '/step-3-python-architecture/'),
+                (u'Magic methods, умение переопределять их', '/step-3-magic/')
             ]
              ],
-            ['The last step', [
-                ('Deploying webserver/website (fabric, docker)', '/step-4-webserver/'),
-                ('Working with DB in python', '/step-4-python-db/'),
-                ('Data base migration', '/step-4-migration/'),
-                ('Django basics', '/step-4-django-basics/'),
-                ('Flask basics', '/step-4-flask-basics/'),
-                ('ORM and MVC patterns', '/step-4-orm-mvc/'),
-                ('Code tracing, linters', '/step-4-linters/'),
-                ('Using custom decorators and generators', '/step-4-custom-decor-gener/'),
-                ('Method resolution order (MRO)', '/step-4-mro/'),
+            [u'Примерные знания для соответствия должности Python middle developer', [
+                (u'Развертывание веб-сервера/сайта на выделенном сервере # (fabric, docker)', '/step-4-webserver/'),
+                (u'Дамп базы данных, подгрузка данных в базы через fixtures', '/step-4-python-db/'),
+                (u'Миграции схем данных', '/step-4-migration/'),
+                (u'Django basics', '/step-4-django-basics/'),
+                (u'Flask basics', '/step-4-flask-basics/'),
+                (u'ORM и MVC паттерны', '/step-4-orm-mvc/'),
+                (u'Трассировщики кода, линтеры', '/step-4-linters/'),
+                (u'Применение кастомных декораторов и генераторов', '/step-4-custom-decor-gener/'),
+                (u'Method resolution order (MRO)', '/step-4-mro/'),
             ]
              ],
         ]
