@@ -1,5 +1,11 @@
-from flask import Flask, render_template, flash, request, url_for, redirect
+from flask import Flask, render_template, flash, request, url_for, redirect, session
 from content_management import Content
+from wtforms import Form, BooleanField, TextField, PasswordField, validators
+from passlib.hash import sha256_crypt
+from MySQLdb import escape_string as thwart
+import gc
+
+from dbconnect import connection
 
 TOPIC_DICT = Content()
 
@@ -47,6 +53,53 @@ def login_page():
     except Exception as e:
         #  flash(e)
         return render_template('login.html', error=error)
+
+
+class RegistrationForm(Form):
+    username = TextField('Username', [validators.Length(min=4, max=20)])
+    email = TextField('Email Address', [validators.Length(min=6, max=50)])
+    password = PasswordField('Password', [validators.Required(),
+                                          validators.EqualTo('confirm', message='Passwords must match')])
+    confirm = PasswordField('Repeat Password')
+    acceptence = 'I accept the <a href="/tos/">Terms of Service</a> and the <a href="/privacy/">Privacy Notice.</a>'
+    accept_tos = BooleanField(acceptence, [validators.Required()])
+
+
+@app.route('/register/', methods=['GET', 'POST'])
+def register_page():
+    try:
+        form = RegistrationForm(request.form)
+        if request.method == 'POST' and form.validate():
+            username = form.username.data
+            email = form.email.data
+            password = sha256_crypt.encrypt((str(form.password.data)))
+            c, conn = connection()
+
+            x = c.execute('SELECT * FROM users WHERE username = (%s)', thwart(username))
+
+            if int(x) > 0:
+                flash('That username is already taken, please choose another')
+                return render_template('register.html', form=form)
+            else:
+                c.execute('INSERT INTO users (username, password, email, tracking) VALUES (%s, %s, %s, %s)',
+                          (thwart(username), thwart(password), thwart(email), thwart('/step-1-ide/')))
+                conn.commit()
+
+                flash('Thanks for registration!')
+                c.close()
+                conn.close()
+
+                gc.collect()
+
+                session['logged_in'] = True
+                session['username'] = username
+
+                return redirect(url_for('dashboard'))
+
+        return render_template('register.html', form=form)
+
+    except Exception as e:
+        return str(e)
 
 
 if __name__ == '__main__':
