@@ -5,12 +5,22 @@ from wtforms import Form, BooleanField, TextField, PasswordField, validators
 from passlib.hash import sha256_crypt
 from MySQLdb import escape_string as thwart
 import gc
-
 from dbconnect import connection
+from additions import login_required
 
 TOPIC_DICT = Content()
 
 app = Flask(__name__)
+
+
+class RegistrationForm(Form):
+    username = TextField('Username', [validators.Regexp(r'^[A-Za-z0-9_-]{4,20}$', message=u'Неподходящее имя (используйте только латинские буквы или цифры)')])
+    email = TextField('Email Address', [validators.Regexp(r'(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)', message=u'Неподходящий адрес (используйте только латинские буквы или цифры)')])
+    password = PasswordField('Password', [validators.Required(),
+                                          validators.EqualTo('confirm', message=u'Пароли не совпадают!')])
+    confirm = PasswordField('Repeat Password')
+    acceptence = 'I accept the <a href="/tos/">Terms of Service</a> and the <a href="/privacy/">Privacy Notice.</a>'
+    accept_tos = BooleanField(acceptence, [validators.Required()])
 
 
 @app.route('/')
@@ -49,7 +59,7 @@ def login_page():
                 flash(u'Вы успешно зашли')
                 return redirect(url_for('dashboard'))
             else:
-                error = u'Не удалось войти? проверьте введенные данные и попытайтесь снова.'
+                error = u'Не удалось войти, проверьте введенные данные и попытайтесь снова.'
 
         gc.collect()
 
@@ -57,18 +67,17 @@ def login_page():
 
     except Exception as e:
         #  flash(e)
-        error = u'Не удалось войти? проверьте введенные данные и попытайтесь снова.'
+        error = u'Не удалось войти, проверьте введенные данные и попытайтесь снова.'
         return render_template('login.html', error=error)
 
 
-class RegistrationForm(Form):
-    username = TextField('Username', [validators.Length(min=4, max=20)])
-    email = TextField('Email Address', [validators.Length(min=6, max=50)])
-    password = PasswordField('Password', [validators.Required(),
-                                          validators.EqualTo('confirm', message='Passwords must match')])
-    confirm = PasswordField('Repeat Password')
-    acceptence = 'I accept the <a href="/tos/">Terms of Service</a> and the <a href="/privacy/">Privacy Notice.</a>'
-    accept_tos = BooleanField(acceptence, [validators.Required()])
+@app.route('/logout/')
+@login_required
+def logout():
+    session.clear()
+    flash(u'Вы вышли из системы!')
+    gc.collect()
+    return redirect(url_for('dashboard'))
 
 
 @app.route('/register/', methods=['GET', 'POST'])
@@ -91,7 +100,7 @@ def register_page():
                           (thwart(username), thwart(password), thwart(email), thwart('/step-1-ide/')))
                 conn.commit()
 
-                flash('Thanks for registration!')
+                flash(u'Вы успешно зарегистрировались!')
                 c.close()
                 conn.close()
 
