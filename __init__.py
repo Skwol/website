@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from flask import Flask, render_template, flash, request, url_for, redirect, session
 from content_management import Content
 from wtforms import Form, BooleanField, TextField, PasswordField, validators
@@ -36,22 +37,27 @@ def method_not_found(error):
 def login_page():
     error = ''
     try:
+        c, conn = connection()
         if request.method == 'POST':
-            attempted_username = request.form['username']
-            attempted_password = request.form['password']
+            data = c.execute('SELECT * FROM users WHERE username = (%s)', thwart(request.form['username']))
+            data = c.fetchone()[2]
 
-            #  flash(attempted_username)
-            #  flash(attempted_password)
+            if sha256_crypt.verify(request.form['password'], data):
+                session['logged_in'] = True
+                session['username'] = request.form['username']
 
-            if attempted_username == 'admin' and attempted_password == 'password':
+                flash(u'Вы успешно зашли')
                 return redirect(url_for('dashboard'))
             else:
-                error = 'Invalid credentials. Try again.'
+                error = u'Не удалось войти? проверьте введенные данные и попытайтесь снова.'
+
+        gc.collect()
 
         return render_template('login.html', error=error)
 
     except Exception as e:
         #  flash(e)
+        error = u'Не удалось войти? проверьте введенные данные и попытайтесь снова.'
         return render_template('login.html', error=error)
 
 
