@@ -23,8 +23,10 @@ class RegistrationForm(Form):
     accept_tos = BooleanField(acceptence, [validators.Required()])
 
 
-@app.route('/')
+@app.route('/', methods=['GET', 'POST'])
 def homepage():
+    if request.method == 'POST':
+        return login_page()
     return render_template('main.html')
 
 
