@@ -25,9 +25,14 @@
 			<ul class="nav navbar-nav navbar-right">
 	        <div style="margin-right: 10px; margin-left: 15px; margin-top: 5px; margin-bottom: 5px;" class="container-fluid">
 	        	<h5>
+					{% if session.logged_in %}
 	        		<a href="/support-donate/"> <span class="glyphicon glyphicon-heart"></span> Поддержать проект&nbsp;&nbsp;&nbsp;</a>
+	        		<a href="/logout/"><span class="glyphicon glyphicon-log-out"></span> Выйти&nbsp;&nbsp;&nbsp;</a>
+					{% else %}
+					<a href="/support-donate/"> <span class="glyphicon glyphicon-heart"></span> Поддержать проект&nbsp;&nbsp;&nbsp;</a>
 	        		<a href="/login/"><span class="glyphicon glyphicon-log-in"></span> Войти&nbsp;&nbsp;&nbsp;</a>
 	        		<a href="/register/"><span class="glyphicon glyphicon-pencil"></span> Зарегистрироваться</a>
+					{% endif %}
 	        	</h5>
 			</div>
 		</ul>
@@ -54,14 +59,7 @@
 	{% block body %}{% endblock %}
 
 	</div>
-
-
 	<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 	<script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
-
-
-
-
-
 </body>
 </html>
